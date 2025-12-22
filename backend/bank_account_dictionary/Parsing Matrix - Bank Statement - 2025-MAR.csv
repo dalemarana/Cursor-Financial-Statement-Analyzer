@@ -1,0 +1,8 @@
+BANK,DATE_PATTERN,PAID_IN,PAID_OUT
+HSBC_Debit_card,"[3, '%d %b %y']","['CR']","['ATM', 'BP', 'DD', 'OBP', 'SO', 'TFR', 'VIS']"
+Barclays_Debit_card,"[2, '%d %b']","['Received']","['Bill', 'Card']"
+HSBC_Credit_card,"[3, '%d %b %y']","['PAYMENT']","[]"
+AMEX_Credit_card,"[2, '%b %d']","['CR', 'PAYMENT']","['ATM', 'BP', 'DD', 'OBP', 'SO', 'TFR', 'VIS']"
+Natwest_Debit_card,"[2, '%d %b']","['Automated', 'PAYMENT']","['Direct', 'Charges', 'OnLine']"
+test,"[3, '%d %b']","[]","[]"
+
