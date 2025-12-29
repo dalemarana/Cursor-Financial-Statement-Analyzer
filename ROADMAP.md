@@ -1,7 +1,7 @@
 # Financial Statement Analyzer - Comprehensive Webapp Roadmap
 
 **Last Updated:** January 2025  
-**Project Status:** Phase 2-3 (Core Backend Complete, Frontend in Progress)  
+**Project Status:** Phase 3-4 (Core Backend Complete, Frontend Foundation Complete, Transaction UI in Progress)  
 **Repository:** https://github.com/dalemarana/Cursor-Financial-Statement-Analyzer.git
 
 ---
@@ -11,6 +11,7 @@
 A multi-user financial statement analyzer web application that processes PDF bank statements, matches transactions, categorizes them, validates balances, and provides visualizations and exports.
 
 ### Technology Stack
+
 - **Backend:** FastAPI (Python), PostgreSQL, SQLAlchemy, Alembic
 - **Frontend:** React 18, TypeScript, Material-UI, React Query
 - **Parsing:** GitHub Parser Integration (98.8% accuracy)
@@ -21,6 +22,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ## ✅ COMPLETED FEATURES
 
 ### Phase 1: Foundation & Authentication ✅
+
 - [x] Project structure setup
 - [x] FastAPI backend initialization
 - [x] PostgreSQL database models (all tables)
@@ -33,6 +35,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [x] User data isolation at database level
 
 ### Phase 2: Core Backend Features ✅
+
 - [x] Transaction CRUD operations (Create, Read, Update, Delete)
 - [x] Advanced filtering system (date, category, account, amount, text, vendor, transaction type, match status)
 - [x] Statement upload endpoint
@@ -47,6 +50,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [x] Transaction statistics endpoint
 
 ### Phase 2.5: PDF Parsing Integration ✅
+
 - [x] GitHub parser adapter implementation
 - [x] Parameter mapping system
 - [x] Fallback parser integration
@@ -55,8 +59,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [x] Statement upload API working end-to-end
 - [x] Transaction storage in database
 - [x] Bank detection and statement period extraction
+- [x] Fixed HSBC debit card parsing (now 100% accuracy for both files)
+- [x] Fixed AMEX credit card parsing (now 100% accuracy)
+- [x] Fixed account type formatting bug in API route
 
 ### Phase 3: Frontend Foundation ✅
+
 - [x] React + TypeScript setup
 - [x] Vite configuration
 - [x] Material-UI integration
@@ -68,26 +76,41 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [x] Protected routes with authentication
 - [x] Dashboard page with file upload (drag-and-drop)
 - [x] Account type selection (credit/debit card)
+- [x] Upload success/error handling with notifications
+- [x] Statement list display on dashboard
+- [x] Navigation to transactions page
 
 ---
 
 ## 🚧 IN PROGRESS / NEXT PRIORITIES
 
 ### Phase 4: Frontend Transaction Management (Priority 1)
-**Status:** Partially Complete  
+
+**Status:** Partially Complete (Basic Table Implemented)  
 **Target:** Complete within 2-3 weeks
 
 #### Transaction Table Component
-- [ ] **TransactionTable.tsx** - Main table component
+
+- [x] **Basic Transactions Page** - Basic table implementation
+  - [x] Transaction table display with Material-UI Table
+  - [x] Basic transaction data display (date, description, account, amount, type, category, balance, status)
+  - [x] Text search functionality
+  - [x] Loading states and error handling
+  - [x] Empty state with helpful message
+  - [x] Currency formatting (GBP)
+  - [x] Date formatting
+  - [x] Color-coded amounts (green for income, red for expenses)
+  - [x] Transaction type chips
+  - [x] Category display with subcategories
+- [ ] **Enhanced TransactionTable.tsx** - Advanced features
   - [ ] Sortable columns (date, amount, description, category, account)
   - [ ] Pagination with configurable page size
   - [ ] Row selection (single/multiple)
   - [ ] Inline editing for category and account
   - [ ] Virtual scrolling for large datasets (1000+ transactions)
-  - [ ] Loading states and error handling
-  - [ ] Empty state with helpful message
 
 #### Transaction Row Component
+
 - [ ] **TransactionRow.tsx** - Individual row component
   - [ ] Date formatting (relative dates: "2 days ago", "Last week")
   - [ ] Amount formatting with color coding (green for income, red for expenses)
@@ -97,6 +120,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Hover effects and interaction feedback
 
 #### Category Management UI
+
 - [ ] **CategoryDropdown.tsx** - Dropdown for category selection
   - [ ] Searchable category list
   - [ ] Grouped by parent category (Asset, Liability, Equity, Income, Expense)
@@ -105,6 +129,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Keyboard navigation support
 
 #### Bulk Edit Panel
+
 - [ ] **BulkEditPanel.tsx** - Bulk operations UI
   - [ ] Select all / deselect all
   - [ ] Bulk category assignment
@@ -114,6 +139,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Undo functionality
 
 #### Transactions Page
+
 - [ ] Complete **Transactions.tsx** page implementation
   - [ ] Integrate TransactionTable component
   - [ ] Filter panel integration
@@ -125,10 +151,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 5: Filtering & Search UI (Priority 2)
+
 **Status:** Backend Complete, Frontend Needed  
 **Target:** Complete within 1-2 weeks
 
 #### Filter Panel Component
+
 - [ ] **FilterPanel.tsx** - Main filter container
   - [ ] Collapsible filter sections
   - [ ] Active filter chips with remove option
@@ -137,6 +165,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Save filter preset button
 
 #### Date Range Picker
+
 - [ ] **DateRangePicker.tsx** - Date filtering component
   - [ ] Calendar picker for start/end dates
   - [ ] Preset ranges: This Month, Last Month, This Year, Custom
@@ -145,6 +174,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Timezone handling
 
 #### Category Filter
+
 - [ ] **CategoryFilter.tsx** - Multi-select category filter
   - [ ] Tree view for categories and subcategories
   - [ ] Select all/none per parent category
@@ -152,6 +182,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] "Uncategorized" option
 
 #### Other Filter Components
+
 - [ ] **AccountFilter.tsx** - Multi-select account filter
 - [ ] **AmountRangeFilter.tsx** - Min/max amount slider with input fields
 - [ ] **TransactionTypeFilter.tsx** - Paid In/Paid Out toggle
@@ -160,6 +191,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] **TextSearch.tsx** - Search input for descriptions
 
 #### Filter Presets
+
 - [ ] **FilterPresets.tsx** - Save/load filter configurations
   - [ ] Save current filters as preset
   - [ ] List saved presets
@@ -170,10 +202,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 6: Transaction Matching UI (Priority 3)
+
 **Status:** Backend Complete, Frontend Needed  
 **Target:** Complete within 1-2 weeks
 
 #### Match Review Panel
+
 - [ ] **MatchReviewPanel.tsx** - Review and confirm matches
   - [ ] List of suggested matches with confidence scores
   - [ ] Side-by-side comparison of matched transactions
@@ -183,6 +217,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Manual match search and selection
 
 #### Match Suggestion Component
+
 - [ ] **MatchSuggestion.tsx** - Individual match suggestion
   - [ ] Visual connection line between transactions
   - [ ] Confidence score indicator (color-coded)
@@ -191,6 +226,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Accept/reject buttons
 
 #### Unmatched Transactions View
+
 - [ ] **UnmatchedTransactions.tsx** - List unmatched transactions
   - [ ] Grouped by type (Paid In / Paid Out)
   - [ ] Manual match search
@@ -199,6 +235,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Bulk match operations
 
 #### Matching Status Indicators
+
 - [ ] Match badge on transaction rows
 - [ ] Match status filter integration
 - [ ] Match statistics (total matched, unmatched, pending)
@@ -207,10 +244,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 7: Visualization (Priority 4)
+
 **Status:** Not Started  
 **Target:** Complete within 2-3 weeks
 
 #### Backend API Endpoints (Not Implemented)
+
 - [ ] `GET /api/visualization/income-expense` - Income/expense data
 - [ ] `GET /api/visualization/expense-over-time` - Expense trends
 - [ ] `GET /api/visualization/balance-sheet` - Asset/liability/equity data
@@ -218,6 +257,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Category aggregation logic
 
 #### Income/Expense Chart
+
 - [ ] **IncomeExpenseChart.tsx** - Horizontal grouped bar chart
   - [ ] Chart.js or Plotly.js integration
   - [ ] Green bars for income, red bars for expenses
@@ -227,6 +267,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Responsive design
 
 #### Expense Over Time Chart
+
 - [ ] **ExpenseOverTimeChart.tsx** - Stacked bar chart
   - [ ] Monthly/quarterly/yearly aggregation
   - [ ] Stacked by expense subcategories
@@ -236,6 +277,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Export functionality
 
 #### Balance Sheet Chart
+
 - [ ] **BalanceSheetChart.tsx** - Multi-line chart
   - [ ] Separate lines for Asset, Liability, Equity
   - [ ] Toggle lines on/off
@@ -245,6 +287,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Export functionality
 
 #### Dashboard Integration
+
 - [ ] Add charts to Dashboard page
 - [ ] Chart refresh on data update
 - [ ] Date range selection for charts
@@ -254,10 +297,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 8: Export Functionality (Priority 5)
+
 **Status:** Not Started  
 **Target:** Complete within 2 weeks
 
 #### Backend Export Endpoints (Not Implemented)
+
 - [ ] `POST /api/export/csv` - CSV export endpoint
   - [ ] Configurable columns
   - [ ] Apply current filters
@@ -280,6 +325,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Configurable resolution
 
 #### Export UI Components
+
 - [ ] **ExportDialog.tsx** - Export modal
   - [ ] Format selection (CSV, Excel, PDF, JSON)
   - [ ] Export options (columns, date range, filters)
@@ -297,10 +343,12 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 9: Balance Validation UI (Priority 6)
+
 **Status:** Backend Complete, Frontend Needed  
 **Target:** Complete within 1 week
 
 #### Balance Alert Component
+
 - [ ] **BalanceAlert.tsx** - Display balance discrepancies
   - [ ] Alert banner when trial balance is off
   - [ ] Discrepancy amount and percentage
@@ -308,6 +356,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Dismiss option
 
 #### Trial Balance Report
+
 - [ ] **TrialBalanceReport.tsx** - Trial balance display
   - [ ] Summary table (Assets + Expenses vs Liabilities + Equity + Income)
   - [ ] Visual comparison (bar chart or gauge)
@@ -316,6 +365,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Refresh button
 
 #### Reconciliation Report
+
 - [ ] **ReconciliationReport.tsx** - Account reconciliation
   - [ ] Per-account reconciliation table
   - [ ] Statement balance vs calculated balance
@@ -324,6 +374,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
   - [ ] Suggested fixes
 
 #### Validation Integration
+
 - [ ] Add validation check on Dashboard
 - [ ] Automatic validation after statement upload
 - [ ] Validation notifications
@@ -333,9 +384,11 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ## 📋 PLANNED FEATURES (Future Phases)
 
 ### Phase 10: Enhanced User Experience
+
 **Target:** Weeks 15-16
 
 #### UI/UX Improvements
+
 - [ ] Dark mode support
 - [ ] Responsive design for mobile/tablet
 - [ ] Keyboard shortcuts
@@ -345,6 +398,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Optimistic UI updates
 
 #### Performance Optimizations
+
 - [ ] Virtual scrolling for large transaction lists
 - [ ] Lazy loading for charts
 - [ ] Data caching strategies
@@ -352,6 +406,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Image optimization for charts
 
 #### Accessibility
+
 - [ ] ARIA labels and roles
 - [ ] Keyboard navigation support
 - [ ] Screen reader support
@@ -361,9 +416,11 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ---
 
 ### Phase 11: Advanced Features
+
 **Target:** Post-MVP
 
 #### Enhanced Categorization
+
 - [ ] AI-powered categorization suggestions
 - [ ] Receipt OCR and matching
 - [ ] Auto-categorization rules (if/then logic)
@@ -371,6 +428,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Budget allocation by category
 
 #### Reporting
+
 - [ ] Custom report builder
 - [ ] Scheduled reports (email delivery)
 - [ ] Financial statement generation (P&L, Balance Sheet)
@@ -378,6 +436,7 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Year-over-year comparisons
 
 #### Data Management
+
 - [ ] Transaction import from CSV/Excel
 - [ ] Duplicate detection and merging
 - [ ] Transaction tags/labels
@@ -385,12 +444,14 @@ A multi-user financial statement analyzer web application that processes PDF ban
 - [ ] Transaction splitting (one transaction → multiple categories)
 
 #### Collaboration (Future)
+
 - [ ] Shared accounts
 - [ ] Team workspaces
 - [ ] Role-based permissions
 - [ ] Comments on transactions
 
 #### Mobile App (Future)
+
 - [ ] React Native mobile app
 - [ ] Camera receipt capture
 - [ ] Push notifications
@@ -401,23 +462,30 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ## 🐛 KNOWN ISSUES & TECHNICAL DEBT
 
 ### Parser Issues
+
 - [ ] **NatWest Debit Card** - 50% accuracy (2/4 transactions), needs improved parsing patterns
+- [x] **HSBC Debit Card** - Fixed! Now 100% accuracy (was 48.6%/56.0%)
+- [x] **AMEX Credit Card** - Fixed! Now 100% accuracy (was 97.2%)
 - [ ] Edge cases for transaction extraction
 - [ ] Handling of complex statement formats
 
 ### Frontend Issues
-- [ ] Transaction table not fully implemented
+
+- [ ] Transaction table needs sorting, pagination, and inline editing
 - [ ] Filter UI components missing
 - [ ] No visualization components yet
 - [ ] Export functionality not implemented
+- [x] Basic transaction table implemented with search
 
 ### Backend Issues
+
 - [ ] Visualization API endpoints not implemented
 - [ ] Export API endpoints not implemented
 - [ ] Some endpoints may need performance optimization
 - [ ] Error handling could be more robust
 
 ### Database
+
 - [ ] Index optimization needed for large datasets
 - [ ] Consider read replicas for scaling
 - [ ] Archive old transactions option
@@ -427,39 +495,47 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ## 📈 PROGRESS METRICS
 
 ### Completion Status
+
 - **Phase 1 (Foundation):** 100% ✅
 - **Phase 2 (Backend Core):** 100% ✅
-- **Phase 2.5 (PDF Parsing):** 95% ✅ (NatWest needs improvement)
-- **Phase 3 (Frontend Foundation):** 70% 🚧
-- **Phase 4 (Transaction UI):** 20% 🚧
+- **Phase 2.5 (PDF Parsing):** 98% ✅ (98.8% accuracy, NatWest needs improvement)
+- **Phase 3 (Frontend Foundation):** 95% ✅ (Dashboard and basic Transactions page complete)
+- **Phase 4 (Transaction UI):** 40% 🚧 (Basic table implemented, needs sorting/pagination/editing)
 - **Phase 5 (Filtering UI):** 0% ⏳
 - **Phase 6 (Matching UI):** 0% ⏳
 - **Phase 7 (Visualization):** 0% ⏳
 - **Phase 8 (Export):** 0% ⏳
 - **Phase 9 (Validation UI):** 0% ⏳
 
-### Overall Progress: ~45% Complete
+### Overall Progress: ~52% Complete
 
 ### Key Achievements
-- ✅ 98.8% parsing accuracy
+
+- ✅ 98.8% parsing accuracy (170/172 transactions)
 - ✅ Complete backend API (except visualization/export endpoints)
 - ✅ Authentication and user management working
 - ✅ Transaction matching algorithm functional
-- ✅ File upload working end-to-end
-- ✅ Basic frontend foundation established
+- ✅ File upload working end-to-end with drag-and-drop UI
+- ✅ Frontend foundation complete (Dashboard, Transactions page, Auth flow)
+- ✅ Basic transaction table with search functionality
+- ✅ Fixed HSBC debit card parsing (100% accuracy)
+- ✅ Fixed AMEX credit card parsing (100% accuracy)
+- ✅ 7 out of 8 bank statement formats achieving 100% accuracy
 
 ---
 
 ## 🎯 IMMEDIATE NEXT STEPS (Next 2 Weeks)
 
-### Week 1: Transaction Table Implementation
-1. Build TransactionTable component with sorting, pagination
-2. Create TransactionRow component with inline editing
-3. Implement CategoryDropdown component
-4. Add BulkEditPanel for bulk operations
-5. Complete Transactions page integration
+### Week 1: Enhanced Transaction Table Features
+
+1. Add sorting functionality to existing transaction table
+2. Implement pagination with configurable page size
+3. Add row selection (single/multiple) with checkboxes
+4. Create CategoryDropdown component for inline editing
+5. Implement inline editing for category and account fields
 
 ### Week 2: Filtering UI
+
 1. Build FilterPanel component
 2. Implement DateRangePicker
 3. Create CategoryFilter and AccountFilter components
@@ -471,18 +547,21 @@ A multi-user financial statement analyzer web application that processes PDF ban
 ## 📝 NOTES FOR DEVELOPMENT
 
 ### Code Organization
+
 - Backend follows clean architecture principles
 - Frontend uses component-based architecture
 - API follows RESTful conventions
 - Error handling uses standard HTTP status codes
 
 ### Testing Strategy
+
 - Unit tests for backend business logic (not yet implemented)
 - Integration tests for API endpoints (not yet implemented)
 - Frontend component tests (not yet implemented)
 - E2E tests for critical user flows (not yet implemented)
 
 ### Deployment Considerations
+
 - Backend: Docker container on cloud (AWS/GCP/Azure)
 - Frontend: Static hosting (Vercel/Netlify) or CDN
 - Database: Managed PostgreSQL (AWS RDS)
@@ -503,4 +582,3 @@ A multi-user financial statement analyzer web application that processes PDF ban
 **Document Version:** 1.0  
 **Last Updated:** January 2025  
 **Maintained By:** Development Team
-
